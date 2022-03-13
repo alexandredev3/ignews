@@ -11,6 +11,9 @@ export default NextAuth({
           scope: 'read:user'
         }
       },
+      httpOptions: {
+        timeout: 40000 // avoid local network issues
+      }
     }),
   ],
   debug: true,
