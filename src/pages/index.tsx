@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import { GetStaticProps } from 'next';
+import Head from "next/head";
+import { GetStaticProps } from "next";
 
-import { SubscribeButton } from '../components/SubscribeButton';
+import { SubscribeButton } from "../components/SubscribeButton";
 
-import { stripe } from '../services/stripe';
+import { stripeServer } from "../services/stripe/stripe-server";
 
-import styles from './home.module.scss';
+import styles from "./home.module.scss";
 
 interface HomeProps {
   product: {
     id: string;
     amount: number;
-  }
+  };
 }
 
 export default function Home({ product }: HomeProps) {
@@ -23,7 +23,9 @@ export default function Home({ product }: HomeProps) {
       <main className={styles.container}>
         <section className={styles.hero}>
           <span>👏 Hey, welcome</span>
-          <h1>News about the <span>React</span> world.</h1>
+          <h1>
+            News about the <span>React</span> world.
+          </h1>
 
           <p>
             Get access to all the publications <br />
@@ -36,14 +38,16 @@ export default function Home({ product }: HomeProps) {
         <img src="/images/avatar.svg" alt="Girl coding" />
       </main>
     </>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   // retrice will return only one price.
   // retrieve parameter is the product id.
   // optional expand: ['product'] all the product information.
-  const product = await stripe().prices.retrieve('price_1KSjuEB28VxnKeelslCdP9S4');
+  const product = await stripeServer.prices.retrieve(
+    "price_1KSjuEB28VxnKeelslCdP9S4"
+  );
 
   // unit_amount returns in cents.
   const { id, unit_amount } = product;
@@ -52,12 +56,12 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       product: {
         id,
-        amount: new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD'
-        }).format(((unit_amount || 0) / 100))
-      }
+        amount: new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        }).format((unit_amount || 0) / 100),
+      },
     },
-    revalidate: 60 * 60 * 24 // 24 hours
-  }
-}
+    revalidate: 60 * 60 * 24, // 24 hours
+  };
+};
