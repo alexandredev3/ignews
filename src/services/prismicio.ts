@@ -1,4 +1,4 @@
-import { Client, createClient, HttpRequestLike } from '@prismicio/client';
+import { createClient, HttpRequestLike } from '@prismicio/client';
 import { enableAutoPreviews } from '@prismicio/next';
 import { PreviewData } from 'next';
 
