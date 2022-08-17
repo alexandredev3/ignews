@@ -1,4 +1,4 @@
-import { createClient, HttpRequestLike } from '@prismicio/client';
+import { Client, createClient, HttpRequestLike } from '@prismicio/client';
 import { enableAutoPreviews } from '@prismicio/next';
 import { PreviewData } from 'next';
 
@@ -9,7 +9,7 @@ type Config = {
   req?: HttpRequestLike;
 }
 
-export const createPrismicClient = (config: Config = {}) => {
+export const getPrismicClient = (config: Config = {}) => {
   const PRISMIC_ACCESS_TOKEN = process.env.PRISMIC_ACCESS_TOKEN;
 
   const client = createClient(sm.apiEndpoint, {

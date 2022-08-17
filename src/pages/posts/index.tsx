@@ -1,12 +1,23 @@
-import * as prismicClient from "@prismicio/client";
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import { RichText } from "prismic-dom";
 
-import { createPrismicClient } from '../../services/prismicio';
+import { getPrismicClient } from "../../services/prismicio";
 
 import styles from "./styles.module.scss";
 
-export default function Posts() {
+type Post = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  updatedAt: string;
+};
+
+interface PostsProps {
+  posts: Post[];
+}
+
+export default function Posts({ posts }: PostsProps) {
   return (
     <>
       <Head>
@@ -15,30 +26,13 @@ export default function Posts() {
 
       <main className={styles.container}>
         <div className={styles.posts}>
-          <a href="#">
-            <time>12 março de 2022</time>
-            <strong>The State Reducer Pattern with React Hooks</strong>
-            <p>
-              A while ago, I developed a new pattern for enhancing your React
-              components calledthe state reducer pattern.{" "}
-            </p>
-          </a>
-          <a href="#">
-            <time>12 março de 2022</time>
-            <strong>The State Reducer Pattern with React Hooks</strong>
-            <p>
-              A while ago, I developed a new pattern for enhancing your React
-              components calledthe state reducer pattern.{" "}
-            </p>
-          </a>
-          <a href="#">
-            <time>12 março de 2022</time>
-            <strong>The State Reducer Pattern with React Hooks</strong>
-            <p>
-              A while ago, I developed a new pattern for enhancing your React
-              components calledthe state reducer pattern.{" "}
-            </p>
-          </a>
+          {posts.map((post) => (
+            <a href="#" key={post.slug}>
+              <time>{post.updatedAt}</time>
+              <strong>{post.title}</strong>
+              <p>{post.excerpt}</p>
+            </a>
+          ))}
         </div>
       </main>
     </>
@@ -46,13 +40,38 @@ export default function Posts() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ previewData }) => {
-  const prismic = createPrismicClient({ previewData });
+  const prismic = getPrismicClient({
+    previewData,
+  });
 
-  const response = await prismic.getByType('post');
-  
+  const data = await prismic.getAllByType("post");
+
+  const posts = data.map((post) => {
+    const excerpt =
+      post.data.content.find(
+        (content: { type: string; text: string }) =>
+          content.type === "paragraph"
+      )?.text ?? "";
+    const updatedAt = new Date(post.last_publication_date).toLocaleDateString(
+      "en-US",
+      {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }
+    );
+
+    return {
+      slug: post.uid,
+      title: RichText.asText(post.data.title),
+      excerpt,
+      updatedAt,
+    };
+  });
+
   return {
     props: {
-
-    }
-  }
-}
+      posts,
+    },
+  };
+};
