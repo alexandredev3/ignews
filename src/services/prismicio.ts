@@ -9,7 +9,7 @@ type Config = {
   req?: HttpRequestLike;
 }
 
-export const getPrismicClient = (config: Config = {}) => {
+export const createPrismicClient = (config: Config = {}) => {
   const PRISMIC_ACCESS_TOKEN = process.env.PRISMIC_ACCESS_TOKEN;
 
   const client = createClient(sm.apiEndpoint, {
