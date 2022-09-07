@@ -10,6 +10,8 @@ import { useSession } from 'next-auth/react';
 
 import { createPrismicClient } from "../../../services/prismicio";
 
+import { getPreview } from '../../../utils';
+
 import styles from "../post.module.scss";
 
 type Params = {
@@ -93,7 +95,7 @@ export const getStaticProps: GetStaticProps<any, Params> = async ({
   const response = await prismic.getByUID("post", slug);
 
   const title = response.data.title;
-  const content = response.data.content.splice(0, 3);
+  const content = getPreview(response.data.content);
   const updatedAt = new Date(response.last_publication_date).toLocaleDateString(
     "en-US",
     {

@@ -17,3 +17,7 @@ export const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
   year: "numeric",
 });
+
+export const getPreview = (content: Content[], from = 0, end = 3) => {
+  return content.splice(from, end);
+}
