@@ -1,13 +1,13 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { PrismicText, PrismicRichText } from '@prismicio/react';
-import * as prismicHelpers from '@prismicio/helpers';
-import { RichTextField } from '@prismicio/types';
+import { PrismicText, PrismicRichText } from "@prismicio/react";
+import * as prismicHelpers from "@prismicio/helpers";
+import { RichTextField } from "@prismicio/types";
 
 import { createPrismicClient } from "../../services/prismicio";
 
-import styles from './post.module.scss';
+import styles from "./post.module.scss";
 
 type Params = {
   slug: string;
@@ -19,7 +19,7 @@ interface PostProps {
     slug: string;
     content: RichTextField;
     updatedAt: string;
-  }
+  };
 }
 
 export default function Post({ post }: PostProps) {
@@ -32,9 +32,7 @@ export default function Post({ post }: PostProps) {
       <main className={styles.container}>
         <article className={styles.article_wrapper}>
           <h1>
-            <PrismicText 
-              field={post.title}
-            />
+            <PrismicText field={post.title} />
           </h1>
           <time>{post.updatedAt}</time>
 
@@ -60,6 +58,15 @@ export const getServerSideProps: GetServerSideProps<any, Params> = async ({
     return {
       notFound: true,
     };
+  }
+
+  if (!session?.user.subscription) {
+    return {
+      redirect: {
+        destination: '/posts/preview/' + slug,
+        permanent: false
+      }
+    }
   }
 
   const prismic = createPrismicClient({ req });

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useSession, signIn } from "next-auth/react";
 
 import { api } from "../../services/api";
@@ -10,9 +11,16 @@ interface SubscribeButtonProps {
 }
 
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
-  const { status } = useSession();
+  const router = useRouter();
+  const { data, status } = useSession();
 
   async function handleSubscribe() {
+    if (data?.user.subscription) {
+      router.push('/posts');
+
+      return;
+    }
+
     try {
       if (status === "authenticated") {
         const response = await api.post("/subscribe");
