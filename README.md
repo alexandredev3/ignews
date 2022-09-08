@@ -1,34 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  <img src="./.github/images/ig-news-logo.svg" />
+  <br />
+  <a href="https://www.linkedin.com/in/alexandre-costa-401699199">
+    <img alt="Linkedin" src="https://img.shields.io/badge/-Alexandre%20Costa-29B6D1?label=Linkedin&logo=linkedin&style=flat-square">
+  </a>
+  <a href="https://github.com/alexandredev3/ignews/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/alexandredev3/ignews?color=29B6D1&style=flat-square">
+  </a>
+  <a href="https://github.com/alexandredev3/ignews/issues?q=is%3Aissue+is%3Aclosed">
+    <img alt="GitHub issues" src="https://badgen.net/github/closed-issues/alexandredev3/ignews?color=29B6D1&style=flat-square">
+  </a>
+  <a href="https://github.com/alexandredev3/ignews/network">
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/alexandredev3/ignews?color=29B6D1&style=flat-square">
+  </a>
+  <a href="https://github.com/alexandredev3/ignews/stargazers">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/alexandredev3/ignews?color=29B6D1&style=flat-square">
+  </a>
+</h1>
+<img src="./.github/images/app-layout.png" />
 
-## Getting Started
+## :page_facing_up: About
+Ignews is a news platform to which the user have to subscribe to have full access to the articles.
 
-First, run the development server:
+## 🛠 Tools
+Those are the tools used to build the app:
 
+- [Typescript](https://www.typescriptlang.org/)
+- [React.js](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [Sass](https://sass-lang.com/)
+- [Next Auth](https://next-auth.js.org/)
+- [FaunaDB](https://fauna.com/)
+- [Prismic CMS](https://prismic.io/)
+- [Stripe](https://stripe.com/en-br)
+
+## :clipboard: Features
+- [x] Sign-In/Sign-Out with Github.
+- [x] Subscribe.
+- [x] Read article preview.
+- [x] Read the full article if the user subscribe.
+
+## :closed_book: Getting Started
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
+$ git clone https://github.com/alexandredev3/ignews.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the dependencies
+```bash
+$ yarn install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. Add values to the .ENV variables, see `.env.example` file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+4. Run the dev server and have fun!😊
+```bash
+$ yarn dev
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## :man: Author
 
-## Learn More
+<a href="https://github.com/alexandredev3/">
+ <img src="https://avatars0.githubusercontent.com/u/61118233?s=400&u=37870397a9363ce5e768975c05e95a5f5d323ca1&v=4" width="70px;" alt=""/>
+ <br />
+ <sub><b>Alexandre Costa</b></sub>
+</a>
 
-To learn more about Next.js, take a look at the following resources:
+Made with :heart: by Alexandre C.🚀
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<a href="https://www.linkedin.com/in/alexandre-costa-dos-santos">
+  <img alt="Linkedin" src="https://img.shields.io/badge/-Alexandre%20Costa-9871F5?label=Linkedin&logo=linkedin&style=flat-square">
+</a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## :memo: License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Copyright © 2020 [Alexandre Costa](https://github.com/alexandredev3).<br />
+This project is [MIT](./LICENSE.txt) licensed.
