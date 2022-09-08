@@ -20,7 +20,7 @@
 <img src="./.github/images/app-layout.png" />
 
 ## :page_facing_up: About
-Ignews is a news platform to which the user have to subscribe to have full access to the articles.
+Ignews is a news platform which the user have to subscribe to read the full articles.
 
 ## 🛠 Tools
 Those are the tools used to build the app:
@@ -43,19 +43,19 @@ Those are the tools used to build the app:
 ## :closed_book: Getting Started
 1. Clone the repository
 ```bash
-$ git clone https://github.com/alexandredev3/ignews.git
+git clone https://github.com/alexandredev3/ignews.git
 ```
 
 2. Install the dependencies
 ```bash
-$ yarn install
+yarn install
 ```
 
 3. Add values to the .ENV variables, see `.env.example` file.
 
 4. Run the dev server and have fun!😊
 ```bash
-$ yarn dev
+yarn dev
 ```
 
 ## :man: Author
