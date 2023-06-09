@@ -13,6 +13,21 @@
           "blocks": 1
         }
       }
+    },
+    "lading_page": {}
+  },
+  "slices": {
+    "LandingPageTitle": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   }
 }

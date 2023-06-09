@@ -8,10 +8,10 @@ interface ActiveLinkProps extends LinkProps {
 
 import styles from './styles.module.scss';
 
-export function ActiveLink({ children,...rest }: ActiveLinkProps) {
+export function ActiveLink({ children, ...rest }: ActiveLinkProps) {
   const { asPath } = useRouter();
 
-  const className = asPath.includes(rest.href.toString().replace('/', '')) && styles.active;
+  const className = asPath === rest.href && styles.active;
 
   return (
     <Link {...rest}>

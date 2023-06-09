@@ -1,0 +1,19 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {}
+    ],
+    "primary": {
+      "title": [
+        {
+          "type": "heading1",
+          "text": "Rubbed",
+          "spans": []
+        }
+      ]
+    },
+    "slice_type": "landing_page_title"
+  }
+]

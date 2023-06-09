@@ -1,5 +1,6 @@
 {
   "apiEndpoint": "https://ignews1706.prismic.io/api/v2",
+  "localSliceSimulatorURL": "https://alexandredev3-congenial-space-bassoon-qx64vrwqp729pq6-3000.preview.app.github.dev/",
   "libraries": [
     "@/slices"
   ],

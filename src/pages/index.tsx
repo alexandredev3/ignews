@@ -24,7 +24,7 @@ export default function Home({ product }: HomeProps) {
         <section className={styles.hero}>
           <span>👏 Hey, welcome</span>
           <h1>
-            News about the <span>React</span> world.
+            Empowering Your <span>Tech</span> Intelligence.
           </h1>
 
           <p>
@@ -48,6 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const product = await stripeServer.prices.retrieve(
     "price_1KSjuEB28VxnKeelslCdP9S4"
   );
+  
 
   // unit_amount returns in cents.
   const { id, unit_amount } = product;
@@ -61,6 +62,7 @@ export const getStaticProps: GetStaticProps = async () => {
           currency: "USD",
         }).format((unit_amount || 0) / 100),
       },
+      pageTitle: ''
     },
     revalidate: 60 * 60 * 24, // 24 hours
   };

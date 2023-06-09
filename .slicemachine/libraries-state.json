@@ -1,5 +1,64 @@
 {
   "slices": {
-    "components": {}
+    "components": {
+      "landing_page_title": {
+        "library": "slices",
+        "id": "landing_page_title",
+        "name": "LandingPageTitle",
+        "description": "LandingPageTitle",
+        "model": {
+          "id": "landing_page_title",
+          "type": "SharedSlice",
+          "name": "LandingPageTitle",
+          "description": "LandingPageTitle",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "LandingPageTitle",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "heading1"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Rubbed",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "landing_page_title"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      }
+    }
   }
 }
