@@ -11,7 +11,7 @@ import styles from './styles.module.scss';
 export function ActiveLink({ children,...rest }: ActiveLinkProps) {
   const { asPath } = useRouter();
 
-  const className = asPath === rest.href && styles.active;
+  const className = asPath.includes(rest.href.toString()) && styles.active;
 
   return (
     <Link {...rest}>
